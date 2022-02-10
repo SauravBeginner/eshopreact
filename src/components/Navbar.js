@@ -8,7 +8,7 @@ const Navbar = (props) => {
     var tk = localStorage.getItem("jtoken");
     if (tk != null) {
       var resp = await fetch(
-        "https://shourav.herokuapp.com/customer/customerdetails",
+        "https://eshopbacnkend.herokuapp.com/customer/customerdetails",
         {
           headers: {
             Authorization: "Bearer " + tk,

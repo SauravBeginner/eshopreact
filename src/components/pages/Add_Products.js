@@ -145,10 +145,13 @@ const Add_Products = () => {
             fd.append("type", type);
             fd.append("pimg", pimg);
 
-            var resp = await fetch("http://localhost:5000/product/add", {
-              method: "POST",
-              body: fd,
-            });
+            var resp = await fetch(
+              "https://eshopbacnkend.herokuapp.com/product/add",
+              {
+                method: "POST",
+                body: fd,
+              }
+            );
 
             var data = await resp.json();
             isAdded(true);
