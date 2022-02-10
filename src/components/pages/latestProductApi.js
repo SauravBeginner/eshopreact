@@ -1,0 +1,68 @@
+const serviceApi = [
+  {
+    id: 1,
+    img: "images/product-5.jpg",
+    name: "Sneakers",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 950,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 2,
+    img: "images/product-6.jpg",
+    name: "Puma T-Shirt",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 1350,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 3,
+    img: "images/product-7.jpg",
+    name: "HRX-Socks",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 550,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 4,
+    img: "images/product-8.jpg",
+    name: "Fossil Wrist Watch",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 12500,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 5,
+    img: "images/product-9.jpg",
+    name: "Wrist Watch",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 1550,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 6,
+    img: "images/product-10.jpg",
+    name: "HRX-Shoes",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 1350,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 7,
+    img: "images/product-11.jpg",
+    name: "Casual Shoes",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 1250,
+    add: "btn btn-outline-dark mt-auto",
+  },
+  {
+    id: 8,
+    img: "images/product-12.jpg",
+    name: "Black Trousers",
+    reviews: ["fa fa-star", "fa fa-star", "fa fa-star"],
+    price: 735,
+    add: "btn btn-outline-dark mt-auto",
+  },
+];
+
+module.exports = serviceApi;
