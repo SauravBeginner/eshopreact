@@ -96,7 +96,7 @@ const SignUp = () => {
               fd.append("cpassword", cpassword);
 
               var result = await fetch(
-                "http://localhost:5000/customer/register",
+                "https://eshopbacnkend.herokuapp.com/customer/register",
                 {
                   method: "POST",
                   body: fd,

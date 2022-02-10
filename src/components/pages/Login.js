@@ -69,10 +69,13 @@ const Login = () => {
               fd.append("email", email);
               fd.append("password", password);
 
-              var result = await fetch("http://localhost:5000/customer/login", {
-                method: "POST",
-                body: fd,
-              });
+              var result = await fetch(
+                "https://eshopbacnkend.herokuapp.com/customer/login",
+                {
+                  method: "POST",
+                  body: fd,
+                }
+              );
               var data = await result.json();
               console.log(data);
 

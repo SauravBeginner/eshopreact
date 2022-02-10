@@ -13,7 +13,7 @@ const Payment = () => {
 
     $.ajax({
       type: "post",
-      url: "http://localhost:5000/cart/payment",
+      url: "https://eshopbacnkend.herokuapp.com/cart/payment",
       data: "amt=" + amt + "&name=" + name,
       success: function (result) {
         var options = {
@@ -27,7 +27,7 @@ const Payment = () => {
           handler: function (response) {
             $.ajax({
               type: "post",
-              url: "http://localhost:5000/cart/payment",
+              url: "https://eshopbacnkend.herokuapp.com/cart/payment",
               data:
                 "payment_id=" + response.razorpay_payment_id + "&oid=" + oid,
               success: function (result) {

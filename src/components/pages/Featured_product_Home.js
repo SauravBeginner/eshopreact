@@ -11,7 +11,9 @@ const Featured_Product_Home = () => {
   let [to, setTo] = useState(0);
 
   const getData = async () => {
-    var resp = await fetch("http://localhost:5000/product/select");
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/product/select"
+    );
     var data = await resp.json();
 
     setProduct(data);
@@ -20,11 +22,14 @@ const Featured_Product_Home = () => {
   async function getu() {
     var tk = localStorage.getItem("jtoken");
     if (tk != null) {
-      var resp = await fetch("http://localhost:5000/customer/customerdetails", {
-        headers: {
-          Authorization: "Bearer " + tk,
-        },
-      });
+      var resp = await fetch(
+        "https://eshopbacnkend.herokuapp.com/customer/customerdetails",
+        {
+          headers: {
+            Authorization: "Bearer " + tk,
+          },
+        }
+      );
       var data = await resp.json();
       setCid(data.id);
     } else {
@@ -32,7 +37,9 @@ const Featured_Product_Home = () => {
     }
   }
   async function gettotla() {
-    var resp = await fetch("http://localhost:5000/cart/totalorder");
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/cart/totalorder"
+    );
     var data = await resp.json();
 
     setTo(data.to);
@@ -58,7 +65,7 @@ const Featured_Product_Home = () => {
                         <img
                           className="card-img-top"
                           src={
-                            "http://localhost:5000/productImg/" +
+                            "https://eshopbacnkend.herokuapp.com/productImg/" +
                             currentElement.pimg
                           }
                         />
@@ -135,7 +142,7 @@ const Featured_Product_Home = () => {
                                     fd.append("qty", qty);
                                     fd.append("price", currentElement.price);
                                     var resp = await fetch(
-                                      "http://localhost:5000/cart/addCart",
+                                      "https://eshopbacnkend.herokuapp.com/cart/addCart",
                                       {
                                         method: "POST",
                                         body: fd,

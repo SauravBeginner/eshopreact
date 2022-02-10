@@ -10,11 +10,14 @@ const Cart = () => {
   async function getu() {
     var tk = localStorage.getItem("jtoken");
     if (tk != null) {
-      var resp = await fetch("http://localhost:5000/customer/customerdetails", {
-        headers: {
-          Authorization: "Bearer " + tk,
-        },
-      });
+      var resp = await fetch(
+        "https://eshopbacnkend.herokuapp.com/customer/customerdetails",
+        {
+          headers: {
+            Authorization: "Bearer " + tk,
+          },
+        }
+      );
       var data = await resp.json();
       setCid(data.id);
     } else {
@@ -24,17 +27,22 @@ const Cart = () => {
   const getData = async () => {
     var fd = new FormData();
     fd.append("cid", cid);
-    var resp = await fetch("http://localhost:5000/cart/viewcart", {
-      method: "POST",
-      body: fd,
-    });
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/cart/viewcart",
+      {
+        method: "POST",
+        body: fd,
+      }
+    );
     var data = await resp.json();
     console.log(data);
     setProduct(data.prod);
     setGt(data.gt);
   };
   async function gettotla() {
-    var resp = await fetch("http://localhost:5000/cart/totalorder");
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/cart/totalorder"
+    );
     var data = await resp.json();
 
     setTo(data.to);
@@ -69,7 +77,8 @@ const Cart = () => {
                   <img
                     className="cartimg"
                     src={
-                      "http://localhost:5000/productImg/" + currentElement.pimg
+                      "https://eshopbacnkend.herokuapp.com/productImg/" +
+                      currentElement.pimg
                     }
                   />
                 </td>
@@ -85,7 +94,7 @@ const Cart = () => {
                       fd.append("price", currentElement.price);
                       fd.append("qty", ev.target.value);
                       var resp = await fetch(
-                        "http://localhost:5000/cart/update",
+                        "https://eshopbacnkend.herokuapp.com/cart/update",
                         {
                           method: "POST",
                           body: fd,
@@ -106,7 +115,7 @@ const Cart = () => {
                         var fd = new FormData();
                         fd.append("id", currentElement.id);
                         var resp = await fetch(
-                          "http://localhost:5000/cart/delete",
+                          "https://eshopbacnkend.herokuapp.com/cart/delete",
                           {
                             method: "POST",
                             body: fd,

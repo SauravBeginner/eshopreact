@@ -14,7 +14,9 @@ const Home = () => {
   let [to, setTo] = useState(0);
 
   async function gettotla() {
-    var resp = await fetch("http://localhost:5000/cart/totalorder");
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/cart/totalorder"
+    );
     var data = await resp.json();
 
     setTo(data.to);

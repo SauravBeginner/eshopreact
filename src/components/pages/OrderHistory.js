@@ -10,11 +10,14 @@ const OrderHistory = () => {
   async function getu() {
     var tk = localStorage.getItem("jtoken");
     if (tk != null) {
-      var resp = await fetch("http://localhost:5000/customer/customerdetails", {
-        headers: {
-          Authorization: "Bearer " + tk,
-        },
-      });
+      var resp = await fetch(
+        "https://eshopbacnkend.herokuapp.com/customer/customerdetails",
+        {
+          headers: {
+            Authorization: "Bearer " + tk,
+          },
+        }
+      );
       var data = await resp.json();
       setCid(data.id);
     } else {
@@ -25,10 +28,13 @@ const OrderHistory = () => {
     if (cid != null) {
       var fd = new FormData();
       fd.append("cid", cid);
-      var resp = await fetch("http://localhost:5000/cart/viewsorder", {
-        method: "POST",
-        body: fd,
-      });
+      var resp = await fetch(
+        "https://eshopbacnkend.herokuapp.com/cart/viewsorder",
+        {
+          method: "POST",
+          body: fd,
+        }
+      );
       var data = await resp.json();
       console.log(data);
 
@@ -62,7 +68,8 @@ const OrderHistory = () => {
                   <img
                     className="cartimg"
                     src={
-                      "http://localhost:5000/productImg/" + currentElement.pimg
+                      "https://eshopbacnkend.herokuapp.com/productImg/" +
+                      currentElement.pimg
                     }
                   />
                 </td>

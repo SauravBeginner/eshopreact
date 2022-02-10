@@ -11,10 +11,13 @@ const Single_Product = (props) => {
     const productId = props.match.params.id;
     var fd = new FormData();
     fd.append("id", productId);
-    var resp = await fetch("http://localhost:5000/product/pdetails", {
-      method: "POST",
-      body: fd,
-    });
+    var resp = await fetch(
+      "https://eshopbacnkend.herokuapp.com/product/pdetails",
+      {
+        method: "POST",
+        body: fd,
+      }
+    );
     var data = await resp.json();
 
     console.log(data);
@@ -24,11 +27,14 @@ const Single_Product = (props) => {
   async function getu() {
     var tk = localStorage.getItem("jtoken");
     if (tk != null) {
-      var resp = await fetch("http://localhost:5000/customer/customerdetails", {
-        headers: {
-          Authorization: "Bearer " + tk,
-        },
-      });
+      var resp = await fetch(
+        "https://eshopbacnkend.herokuapp.com/customer/customerdetails",
+        {
+          headers: {
+            Authorization: "Bearer " + tk,
+          },
+        }
+      );
       var data = await resp.json();
       setCid(data.id);
     } else {
@@ -48,7 +54,10 @@ const Single_Product = (props) => {
             <div className="col-md-6">
               <img
                 className="card-img-top mb-5 mb-md-0"
-                src={"http://localhost:5000/productImg/" + product.pimg}
+                src={
+                  "https://eshopbacnkend.herokuapp.com/productImg/" +
+                  product.pimg
+                }
                 alt="..."
               />
             </div>
@@ -89,7 +98,7 @@ const Single_Product = (props) => {
                       fd.append("qty", qty);
                       fd.append("price", product.price);
                       var resp = await fetch(
-                        "http://localhost:5000/cart/addCart",
+                        "https://eshopbacnkend.herokuapp.com/cart/addCart",
                         {
                           method: "POST",
                           body: fd,

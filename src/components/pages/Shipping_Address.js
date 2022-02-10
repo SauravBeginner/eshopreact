@@ -52,10 +52,13 @@ const Shipping_Address = () => {
           fd.append("address", address);
           fd.append("phone", phone);
 
-          var resp = await fetch("http://localhost:5000/Customer/add", {
-            method: "POST",
-            body: fd,
-          });
+          var resp = await fetch(
+            "https://eshopbacnkend.herokuapp.com/Customer/add",
+            {
+              method: "POST",
+              body: fd,
+            }
+          );
 
           var data = await resp.json();
 
